@@ -24,15 +24,24 @@ $(document).ready(function(){
 
   function getData(results){
     var all_states = [];
-    var state_data = [{
+    var state_data = [
+    {
       name: 'Number of Employees', 
       data: [],
-    }];
+    },
+    {
+      name: 'Average Annual Pay', 
+      data: [],
+    },
+    ];
 
     for (var i=0; i < results.length; i++){
       var tempObject = results[i];
       all_states.push(tempObject.GEO_TTL);
       state_data[0].data.push(parseInt(tempObject.EMP));
+      var averageAnnualPay = ((parseInt(tempObject.PAYANN)/ parseInt(tempObject.EMP))*1000).toFixed(0);
+      state_data[1].data.push(parseInt(averageAnnualPay));
+      console.log(state_data);
     }
   $('#container').highcharts({
           chart: {
@@ -57,7 +66,7 @@ $(document).ready(function(){
           tooltip: {
               headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
               pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                  '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                  '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
               footerFormat: '</table>',
               shared: true,
               useHTML: true
