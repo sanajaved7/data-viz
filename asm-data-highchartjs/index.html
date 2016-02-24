@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>ASM Data - Census Bureau</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+  <link rel="stylesheet" type="text/css" href="chosen.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
-  <div id="container" style="width: 100%; height: 650px"></div>
-  <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-  <script src="linechart.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+   	<script src="fips.js"></script>
+   	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.1.0/chosen.jquery.min.js"></script>
+   	<script type="text/javascript" src="chosen.jquery.min.js"></script>
+   	<script type="text/javascript" src="chosen.proto.min.js"></script>
+  	<script src="interactiveLinechart.js"></script>
+  <h1>Manufacturing Employment by State from 2005 to 2014</h1>
+  <div id="data">
+	  <select class="states chosen-select" data-placeholder="Boo">
+	  </select>
+	  <div id="employment-by-state"></div>
+  </div>
 </body>
 </html>
